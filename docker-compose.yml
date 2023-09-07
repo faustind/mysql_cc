@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mysql_cc:
+    image: mysql:latest
+    container_name: db 
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      # MYSQL_DATABASE: mydb
+      # MYSQL_USER: myuser
+      # MYSQL_PASSWORD: mypassword
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "6033:3306"
+    networks:
+      - default 
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  data:
